@@ -5,15 +5,13 @@ on:
   workflow_call:
 
 jobs:
-  get_test_classes:
-    name: get test classes
+  job1:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [ 10, 12, 14 ]
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      # Configures the node version used on GitHub-hosted runners
-      - run: echo ${{ matrix }}
+      - id: set-matrix
+        run: ls
 
 
 
