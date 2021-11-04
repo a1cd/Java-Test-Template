@@ -17,13 +17,16 @@ for i in ${!allthings[@]}
   value="${allthings[$i]}"
   echo $value
   fileName=$(basename $value)
-  className=
+  className=${fileName%.*}
+  if [ $i -ne 0 ]; then
+    outputJSON=$outputJSON","
+  fi
   outputJSON=$outputJSON"{\"path\":\""
   outputJSON=$outputJSON${value}
   outputJSON=$outputJSON$"\",\"name\":\""
   outputJSON=$outputJSON${fileName}
   outputJSON=$outputJSON$"\",\"class\":\""
-  outputJSON=$outputJSON${fileName%.*}
+  outputJSON=$outputJSON${className}
   outputJSON=$outputJSON$"\"}"
   done
 outputJSON=$outputJSON"]}"
