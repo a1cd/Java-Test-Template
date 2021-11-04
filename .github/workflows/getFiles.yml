@@ -1,9 +1,10 @@
-name: Reusable workflow example
+name: Test All Class Tests
 
 on:
   push:
-  workflow_call:
-
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 jobs:
   getAllTestFiles:
     runs-on: ubuntu-latest
