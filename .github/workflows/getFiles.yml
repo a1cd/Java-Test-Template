@@ -3,12 +3,17 @@ name: Reusable workflow example
 on:
   push:
   workflow_call:
+
 jobs:
-  print-username:
+  get_test_classes:
+    name: get test classes
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node: [ 10, 12, 14 ]
     steps:
-      - name: Print the input name to STDOUT
-        run: echo The username is ${{ inputs.username }}
+      # Configures the node version used on GitHub-hosted runners
+      - run: echo ${{ matrix }}
+
+
+
