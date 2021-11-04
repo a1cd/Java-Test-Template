@@ -1,0 +1,27 @@
+name: Reusable workflow example
+
+on:
+  push:
+  workflow_call:
+    inputs:
+      srcFolderName:
+        required: true
+        type: string
+
+jobs:
+  get_test_classes:
+    name: get test classes
+    runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.getfiles.outputs.test }}
+
+
+    strategy:
+      matrix:
+        node: [ 10, 12, 14 ]
+    steps:
+      # Configures the node version used on GitHub-hosted runners
+      - run: echo ${{ matrix.node }}
+
+
+
