@@ -12,10 +12,6 @@ jobs:
   get_test_classes:
     name: get test classes
     runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.getfiles.outputs.test }}
-
-
     strategy:
       matrix:
         node: [ 10, 12, 14 ]
