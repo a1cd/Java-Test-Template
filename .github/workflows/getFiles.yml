@@ -11,9 +11,7 @@ jobs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - id: set-matrix
-        run: |
-          echo $(ls)
-          echo This event is a pull request that had an assignee removed.
+        run: pwd
         shell: bash
 
 
