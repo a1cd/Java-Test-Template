@@ -10,6 +10,7 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
+      - uses: actions/checkout@v2
       - id: set-matrix
         run: bash ./.github/scripts/getFiles.sh
         shell: bash
@@ -19,7 +20,6 @@ jobs:
     strategy:
       matrix: ${{fromJson(needs.job1.outputs.matrix)}}
     steps:
-      - uses: actions/checkout@v2
       - run: echo ${{ matrix.path }}
       - run: echo ${{ matrix.name }}
 
