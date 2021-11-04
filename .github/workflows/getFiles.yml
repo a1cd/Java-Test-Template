@@ -11,7 +11,7 @@ jobs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - id: set-matrix
-        run: ls
+        run: echo $(ls)
 
 
 
