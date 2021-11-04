@@ -22,7 +22,3 @@ jobs:
     steps:
       - run: echo ${{ matrix.path }}
       - run: echo ${{ matrix.name }}
-
-
-
-

@@ -22,4 +22,5 @@ for i in ${!allthings[@]}
   outputJSON=$outputJSON$(basename $value)
   outputJSON=$outputJSON$"\"}"
   done
+outputJSON=$outputJSON"]}"
 echo ::set-output name=matrix::"$outputJSON"
