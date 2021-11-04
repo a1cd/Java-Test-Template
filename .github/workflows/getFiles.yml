@@ -3,10 +3,6 @@ name: Reusable workflow example
 on:
   push:
   workflow_call:
-    inputs:
-      srcFolderName:
-        required: true
-        type: string
 
 jobs:
   get_test_classes:
