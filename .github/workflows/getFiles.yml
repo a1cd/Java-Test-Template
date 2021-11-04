@@ -5,7 +5,7 @@ on:
   workflow_call:
 
 jobs:
-  job1:
+  getAllTestFiles:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
@@ -14,11 +14,11 @@ jobs:
       - id: set-matrix
         run: bash ./.github/scripts/getFiles.sh
         shell: bash
-  job2:
-    needs: job1
+  RunAllTestFiles:
+    needs: getAllTestFiles
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{fromJson(needs.job1.outputs.matrix)}}
+      matrix: ${{fromJson(needs.getAllTestFiles.outputs.matrix)}}
     steps:
       - run: echo ${{ matrix.path }}
       - run: echo ${{ matrix.name }}

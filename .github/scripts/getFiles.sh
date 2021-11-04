@@ -16,10 +16,14 @@ for i in ${!allthings[@]}
   echo i is $i
   value="${allthings[$i]}"
   echo $value
+  fileName=$(basename $value)
+  className=
   outputJSON=$outputJSON"{\"path\":\""
   outputJSON=$outputJSON${value}
   outputJSON=$outputJSON$"\",\"name\":\""
-  outputJSON=$outputJSON$(basename $value)
+  outputJSON=$outputJSON${fileName}
+  outputJSON=$outputJSON$"\",\"class\":\""
+  outputJSON=$outputJSON${fileName%.*}
   outputJSON=$outputJSON$"\"}"
   done
 outputJSON=$outputJSON"]}"
