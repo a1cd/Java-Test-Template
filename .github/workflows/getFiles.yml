@@ -30,7 +30,3 @@ jobs:
       - name: Run the Gradle class test
         id: testTheClass
         run: ./gradlew test --tests ${{ matrix.class }}
-      - name: Check for any failures
-        if: ${{ steps.testTheClass.conclusion == "success"}}
-        run:
-
